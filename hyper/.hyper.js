@@ -11,13 +11,13 @@ module.exports = {
     fontSize: 12,
     // font family with optional fallbacks
     fontFamily:
-      'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+      '"FiraCode Nerd Font", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
     // default font weight: 'normal' or 'bold'
     fontWeight: "normal",
     // font weight for bold characters: 'normal' or 'bold'
     fontWeightBold: "bold",
     // line height as a relative unit
-    lineHeight: 1,
+    lineHeight: 1.2,
     // letter spacing as a relative unit
     letterSpacing: 0,
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
@@ -37,6 +37,10 @@ module.exports = {
     selectionColor: "rgba(248,28,229,0.3)",
     // border color (window, tabs)
     borderColor: "#333",
+    hyperBorder: {
+      borderColors: ["#1D976C", "#93F9B9"],
+      blurredColors: ["#177C59", "#84E0A6"],
+    },
     // custom CSS to embed in the main window
     css: "",
     // custom CSS to embed in the terminal window
@@ -93,7 +97,7 @@ module.exports = {
     //
     // Cygwin
     // - Example: `C:\\cygwin64\\bin\\bash.exe`
-    shell: "",
+    shell: "/bin/zsh",
     // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
     // by default `['--login']` will be used
     shellArgs: ["--login"],
@@ -119,6 +123,11 @@ module.exports = {
     // Whether to use the WebGL renderer. Set it to false to use canvas-based
     // rendering (slower, but supports transparent backgrounds)
     webGLRenderer: true,
+    // for advanced config flags please refer to https://hyper.is/#cfg
+    activeTab: {
+      symbol: "🤓",
+      color: "gray",
+    },
     // keypress required for weblink activation: [ctrl|alt|meta|shift]
     // todo: does not pick up config changes automatically, need to restart terminal :/
     webLinksActivationKey: "",
@@ -138,7 +147,14 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: [],
+  plugins: [
+    "hyper-one-dark",
+    "hyper-font-ligatures",
+    "hyper-active-tab",
+    "hyper-search",
+    "hyperborder",
+    "hyper-samewd",
+  ],
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
